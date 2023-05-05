@@ -231,4 +231,3 @@ bindsym --release $mod+Shift+s exec --no-startup-id "slock"
 
 # Open screenshot tool
 bindsym Print exec --no-startup-id "rofi-screenshot"
-

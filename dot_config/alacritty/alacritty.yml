@@ -1,8 +1,9 @@
 env:
   TERM: xterm-256color
+  WINIT_X11_SCALE_FACTOR: "1.5"
 
-import:
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+#import:
+#  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
 
 font:
   size: 6.0
@@ -10,4 +11,4 @@ font:
     family: JetbrainsMono Nerd Font
 
 shell:
-  program: bash
+  program: zsh
