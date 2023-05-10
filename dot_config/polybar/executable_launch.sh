@@ -14,7 +14,7 @@ do
 done
 
 ## The name of the bar you want to manage
-BAR_NAMES="panel"
+BAR_NAMES="top"
 TRAY_OUTPUT=$(xrandr | awk '/ primary / {print $1}')
 
 ## Find active monitors
