@@ -9,6 +9,7 @@ local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
+local lain = require("lain")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -20,6 +21,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+require("spotify")
+local spotify_song = require("spotify_song")
+local theme = gears.filesystem.get_configuration_dir() .. "themes/2023.lua"
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -150,8 +154,7 @@ screen.connect_signal(
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = awful.widget.textclock()
 
 screen.connect_signal(
     "request::desktop_decoration",
@@ -317,13 +320,12 @@ screen.connect_signal(
                     s.mypromptbox
                 },
                 nil,
-                -- s.mytasklist, -- Middle widget
                 {
                     -- Right widgets
                     layout = wibox.layout.fixed.horizontal,
                     --mykeyboardlayout,
+		    mytextclock,
                     wibox.widget.systray(),
-                    mytextclock,
                     s.mylayoutbox
                 }
             }
@@ -838,6 +840,7 @@ client.connect_signal(
     function()
         awful.keyboard.append_client_keybindings(
             {
+                awful.key({modkey}, "t", awful.titlebar.toggle, {description = "toggle title bar", group = "client"}),
                 awful.key(
                     {modkey},
                     "f",
@@ -977,11 +980,11 @@ ruled.client.connect_signal(
         }
 
         -- Add titlebars to normal clients and dialogs
-        ruled.client.append_rule {
-            id = "titlebars",
-            rule_any = {type = {"normal", "dialog"}},
-            properties = {titlebars_enabled = true}
-        }
+        -- ruled.client.append_rule {
+        --     id = "titlebars",
+        --     rule_any = {type = {"normal", "dialog"}},
+        --     properties = {titlebars_enabled = true}
+        -- }
 
         ruled.client.append_rule {
             rule = {class = "Emacs"},
@@ -1084,6 +1087,17 @@ client.connect_signal(
         c:activate {context = "mouse_enter", raise = false}
     end
 )
+
+-- client.connect_signal(
+--     "property::floating",
+--     function(c)
+--         if c.floating and not c.class == "Polybar" then
+--             awful.titlebar.show(c)
+--         else
+--             awful.titlebar.hide(c)
+--         end
+--     end
+-- )
 
 -- Startup
 awful.spawn("autorandr -c")
