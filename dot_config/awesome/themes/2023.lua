@@ -12,7 +12,8 @@ local themes_path = gfs.get_themes_dir()
 local theme = {}
 theme.dir = os.getenv("HOME") .. "/.config/awesome/themes"
 
-theme.font = "pango:JetbrainsMono Nerd Font 8"
+theme.font = "pango:JetBrainsMono Nerd Font Mono,JetBrainsMono NFM SemiBold 8"
+--"pango:JetbrainsMono Nerd Font 8"
 
 theme.bg_normal = "#11111b"
 theme.bg_focus = "#11111b"
@@ -46,10 +47,12 @@ theme.border_marked = "#91231c"
 
 -- theme.taglist_bg_focus = "#FFFFFF"
 
+theme.taglist_fg_occupied = "#fab387"
+
 -- Generate taglist squares:
-local taglist_square_size = dpi(4)
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
-theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
+-- local taglist_square_size = dpi(4)
+-- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
+-- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
 -- Variables set for theming notifications:
 -- notification_font
@@ -123,6 +126,8 @@ theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = "Papirus-Dark"
+
+theme.systray_icon_spacing = "4"
 
 return theme
 
