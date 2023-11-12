@@ -1,16 +1,15 @@
 local gears = require("gears")
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
-
-modkey = "Mod4"
+local config = require("config")
 
 awful.keyboard.append_global_keybindings(
     {
         awful.key(
-            {modkey},
+            {"Mod4"},
             "Return",
             function()
-                awful.spawn(terminal)
+                awful.spawn(config.apps.terminal)
             end,
             {description = "open a terminal", group = "launcher"}
         )

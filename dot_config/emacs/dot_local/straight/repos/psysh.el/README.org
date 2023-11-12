@@ -1,0 +1,30 @@
+* PsySH.el
+
+#+BEGIN_HTML
+<a href="https://melpa.org/#/psysh"><img src="https://melpa.org/packages/psysh-badge.svg" alt="MELPA"></a>
+#+END_HTML
+
+[[http://psysh.org/][PsySH]], PHP interactive shell (REPL)
+
+** Compatibility
+
+- [[https://github.com/ejmr/php-mode][php-mode]]
+- [[http://auto-complete.org/][auto-complete]]
+- [[https://github.com/sabof/php-eldoc][php-eldoc]]
+
+** Installation
+*** A: The easy way
+#+BEGIN_SRC
+$ wget psysh.org/psysh
+$ chmod +x psysh
+#+END_SRC
+
+And copy or make symlink to your =$PATH= dir.
+
+*** B: The other easy way
+
+Get Composer.  See https://getcomposer.org/download/
+
+#+BEGIN_SRC
+$ composer g require psy/psysh:@stable
+#+END_SRC

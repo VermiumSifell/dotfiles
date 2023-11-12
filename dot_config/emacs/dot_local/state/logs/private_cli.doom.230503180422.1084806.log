@@ -1,0 +1,119 @@
+* 0.083575:*:cli:run!: doom sync -e
+* 0.083665:*:cli:context-parse: found command (doom)
+* 0.083919:*:cli:load: autoload /home/vermium/.config/emacs/lisp/cli/sync.el
+* 0.083955:*:cli:load: ~/.config/emacs/lisp/cli/sync.el nil
+* 0.084112:*:cli:load: ~/.config/emacs/lisp/cli/packages nil
+* 0.106733:*:cli:context-parse: found command (doom sync)
+* 0.106959:*:cli:context-parse: found switch "-e"
+* 0.107174:*:cli:context-execute: doom sync
+* 0.107452:*:cli:execute: (:before) ((input) (context . #s(doom-cli-context (25682 34310 269004 498000) 1084806 0 (113 . 16) nil nil doom nil nil (doom sync) nil (sync -e) ((--jobs) (-j) (-p) (-u) (-c) (-e . -e) (--eval) (-E) (--strict-load) (--load) (-L) (--color) (--benchmark) (--profile) (--pager) (--emacsdir) (--doomdir) (--verbose) (-v) (--debug) (-D) (--force) (-!)) ((t) ((doom sync) -e) ((doom) sync -e))  *doom-cli stdin*  *doom-cli stdout*  *doom-cli stderr* nil)) (_) (evals) (loads) (color?) (bench?) (profile) (pager) (emacsdir) (doomdir) (verbose?) (debug?) (force?))
+* 0.107496:*:cli:execute: (:before doom build) nil
+* 0.107522:*:cli:Initializing straight
+* 0.107546::context: +packages (cli t)
+* 0.107566::context:module: =[0 -110 -110 :core nil nil nil]
+* 0.150490:*:cli:Initializing recipes
+* 0.153278:*:cli:Installing core packages
+* 0.153317:*:cli:execute: (doom sync) ((jobs) (purge?) (update?) (noelc?) (noenvvar? . -e))
+* 0.153421:*:cli:call: (doom sync) -> (doom profiles sync --reload)
+* 0.153490:*:cli:context-parse: found command (doom)
+* 0.153678:*:cli:load: autoload /home/vermium/.config/emacs/lisp/cli/profiles.el
+* 0.153710:*:cli:load: ~/.config/emacs/lisp/cli/profiles.el nil
+* 0.158783:*:cli:context-parse: found command (doom profiles)
+* 0.159008:*:cli:context-parse: found command (doom profiles sync)
+* 0.159197:*:cli:context-parse: found switch "--reload"
+* 0.159423:*:cli:context-execute: doom profiles sync
+* 0.159679:*:cli:execute: (:before) ((input) (context . #s(doom-cli-context (25682 34310 269004 498000) 1084806 0 (113 . 16) nil nil doom nil nil (doom profiles sync) nil (sync -e) ((--reload . --reload) (--jobs) (-j) (-p) (-u) (-c) (-e . -e) (--eval) (-E) (--strict-load) (--load) (-L) (--color) (--benchmark) (--profile) (--pager) (--emacsdir) (--doomdir) (--verbose) (-v) (--debug) (-D) (--force) (-!)) ((t) ((doom profiles sync) --reload) ((doom profiles) sync --reload) ((doom) profiles sync --reload))  *doom-cli stdin*  *doom-cli stdout*  *doom-cli stderr* nil)) (_) (evals) (loads) (color?) (bench?) (profile) (pager) (emacsdir) (doomdir) (verbose?) (debug?) (force?))
+* 0.159731:*:cli:execute: (doom profiles sync) ((reload? . --reload))
+  * 0.160036:*:cli:Profiles are up-to-date!
+> Synchronizing "default" profile...
+  * 0.160481:*:cli:Initializing package.el
+  * 0.176849:*:cli:Initializing straight.el
+  * 0.177217::context: +packages (cli t)
+  * 0.177244::context:module: =[1 105 -105 :user nil nil nil]
+  * 0.177418::context:module: =[2 -111 -111 :config use-package nil nil]
+  * 0.177904::context:module: =[0 -110 -110 :core nil nil nil]
+  * 0.186053::context:module: =[1 105 -105 :user nil nil nil]
+  * 0.186252::context:module: =[3 0 0 :completion company nil nil]
+  * 0.187356::context:module: =[4 0 0 :completion vertico nil nil]
+  * 0.191026::context:module: =[5 0 0 :ui doom nil nil]
+  * 0.191981::context:module: =[6 0 0 :ui doom-dashboard nil nil]
+  * 0.192048::context:module: =[7 0 0 :ui emoji (+unicode) nil]
+  * 0.192622::context:module: =[8 0 0 :ui hl-todo nil nil]
+  * 0.193140::context:module: =[9 0 0 :ui indent-guides nil nil]
+  * 0.193605::context:module: =[10 0 0 :ui ligatures nil nil]
+  * 0.193638::context:module: =[11 0 0 :ui minimap nil nil]
+  * 0.194092::context:module: =[12 0 0 :ui modeline nil nil]
+  * 0.195178::context:module: =[13 0 0 :ui neotree nil nil]
+  * 0.195663::context:module: =[14 0 0 :ui ophints nil nil]
+  * 0.196439::context:module: =[15 0 0 :ui popup (+defaults) nil]
+  * 0.196488::context:module: =[16 0 0 :ui tabs nil nil]
+  * 0.196929::context:module: =[17 0 0 :ui treemacs nil nil]
+  * 0.199024::context:module: =[18 0 0 :ui unicode nil nil]
+  * 0.199536::context:module: =[19 0 0 :ui vc-gutter (+pretty) nil]
+  * 0.200419::context:module: =[20 0 0 :ui vi-tilde-fringe nil nil]
+  * 0.200915::context:module: =[21 0 0 :ui window-select nil nil]
+  * 0.201898::context:module: =[22 0 0 :ui workspaces nil nil]
+  * 0.202400::context:module: =[23 0 0 :ui zen nil nil]
+  * 0.203255::context:module: =[24 0 0 :editor evil (+everywhere) nil]
+  * 0.209512::context:module: =[25 0 0 :editor file-templates nil nil]
+  * 0.210055::context:module: =[26 0 0 :editor fold nil nil]
+  * 0.211589::context:module: =[27 0 0 :editor format (+onsave) nil]
+  * 0.212152::context:module: =[28 0 0 :editor multiple-cursors nil nil]
+  * 0.213306::context:module: =[29 0 0 :editor snippets nil nil]
+  * 0.214486::context:module: =[30 0 0 :editor word-wrap nil nil]
+  * 0.215306::context:module: =[31 0 0 :emacs dired nil nil]
+  * 0.218413::context:module: =[32 0 0 :emacs electric nil nil]
+  * 0.218492::context:module: =[33 0 0 :emacs undo nil nil]
+  * 0.220031::context:module: =[34 0 0 :emacs vc nil nil]
+  * 0.222523::context:module: =[35 0 0 :checkers syntax nil nil]
+  * 0.223955::context:module: =[36 0 0 :checkers grammar nil nil]
+  * 0.225067::context:module: =[37 0 0 :tools debugger nil nil]
+  * 0.226517::context:module: =[38 0 0 :tools docker nil nil]
+  * 0.227685::context:module: =[39 0 0 :tools editorconfig nil nil]
+  * 0.228169::context:module: =[40 0 0 :tools eval (+overlay) nil]
+  * 0.228931::context:module: =[41 0 0 :tools gist nil nil]
+  * 0.229519::context:module: =[42 0 0 :tools lookup nil nil]
+  * 0.233241::context:module: =[43 0 0 :tools lsp nil nil]
+  * 0.235672::context:module: =[44 0 0 :tools magit nil nil]
+  * 0.237282::context:module: =[45 0 0 :tools pass nil nil]
+  * 0.238887::context:module: =[46 0 0 :tools pdf nil nil]
+  * 0.239656::context:module: =[47 0 0 :tools rgb nil nil]
+  * 0.240444::context:module: =[48 0 0 :tools tmux nil nil]
+  * 0.240478::context:module: =[49 0 0 :tools tree-sitter nil nil]
+  * 0.241865::context:module: =[50 0 0 :tools upload nil nil]
+  * 0.242324::context:module: =[51 0 0 :os tty nil nil]
+  * 0.243363::context:module: =[52 0 0 :lang data nil nil]
+  * 0.243816::context:module: =[53 0 0 :lang emacs-lisp nil nil]
+  * 0.246865::context:module: =[54 0 0 :lang javascript nil nil]
+  * 0.249527::context:module: =[55 0 0 :lang latex nil nil]
+  * 0.252357::context:module: =[56 0 0 :lang lua (+lsp) nil]
+  * 0.253996::context:module: =[57 0 0 :lang markdown nil nil]
+  * 0.255996::context:module: =[58 0 0 :lang nix nil nil]
+  * 0.257694::context:module: =[59 0 0 :lang org nil nil]
+  * 0.271571::context:module: =[60 0 0 :lang php nil nil]
+  * 0.275196::context:module: =[61 0 0 :lang python nil nil]
+  * 0.280093::context:module: =[62 0 0 :lang rest nil nil]
+  * 0.281442::context:module: =[63 0 0 :lang scheme (+guile) nil]
+  * 0.285294::context:module: =[64 0 0 :lang sh nil nil]
+  * 0.286315::context:module: =[65 0 0 :email mu4e (+org +gmail) nil]
+  * 0.287150::context:module: =[66 0 0 :app calendar nil nil]
+  * 0.289155::context:module: =[67 0 0 :config default (+bindings +smartparens) nil]
+  * 0.290899::context:module: =[1 105 -105 :user nil nil nil]
+  > Installing packages...
+    - No packages need to be installed
+  > (Re)building packages...
+    - No packages need rebuilding
+  > Purging orphaned packages (for the emperor)...
+    - Skipping builds
+    - Skipping elpa packages
+    - Skipping repos
+    - Skipping regrafting
+  > (Re)building profile in /home/vermium/.config/emacs/.local/etc/@/...
+    > Deleting old init files...
+    > Generating 4 init files...
+    > Byte-compiling ~/.config/emacs/.local/etc/@init.28.el...
+    ✓ Built init.28.elc
+  - Restart Emacs or use 'M-x doom/reload' for changes to take effect
+* 1.006420:*:cli:Finished (GCs: 0, elapsed: 0.000000s)
+* 1.006420:*:cli:Finished (GCs: 0, elapsed: 0.000000s)
+✓ Finished in 1.00651s

@@ -1,0 +1,26 @@
+name: Update tree-siter queries
+on:
+  schedule:
+    - cron:  '0 13 * * 5'
+  workflow_dispatch:
+jobs:
+  update-queries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Update repos
+        run: |
+          git clone --depth 1 https://github.com/nvim-treesitter/nvim-treesitter-textobjects /tmp/nts
+          rm -r queries && mv /tmp/nts/queries .
+          ./scripts/fix-queries
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Update tree-sitter queries to latest
+          title: Update tree-sitter queries
+          body: Update tree-sitter queries to latest from nvim-treesitter/nvim-treesitter-textobjects
+          branch: auto-update-queries
+          base: master
+          token: ${{ secrets.REPO_SCOPED_PAT }} # need this to trigger CI

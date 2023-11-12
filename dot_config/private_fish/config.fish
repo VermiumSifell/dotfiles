@@ -4,3 +4,5 @@ end
 
 bind \e\[3\;5~ kill-word
 bind \cH backward-kill-word
+fish_ssh_agent
+set -gx EDITOR vim

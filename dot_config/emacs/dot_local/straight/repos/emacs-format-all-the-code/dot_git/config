@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/lassik/emacs-format-all-the-code.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

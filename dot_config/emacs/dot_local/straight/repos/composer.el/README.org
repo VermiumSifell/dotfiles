@@ -1,0 +1,50 @@
+* composer.el
+
+#+BEGIN_HTML
+<a href="https://melpa.org/#/composer"><img alt="MELPA: composer" src="https://melpa.org/packages/composer-badge.svg"></a>
+<a href="https://stable.melpa.org/#/composer"><img alt="MELPA stable: composer" src="https://stable.melpa.org/packages/composer-badge.svg"></a>
+#+END_HTML
+
+[[https://getcomposer.org/][Composer]] interface for Emacs.
+
+** Specification
+See [[https://getcomposer.org/doc/][Composer Documentation]].  =composer.el= supports [[https://getcomposer.org/doc/03-cli.md#environment-variables][Environment variables]] (currently we support only =COMPOSER_BIN_DIR= and =COMPOSER_HOME=).
+
+** Commands
+
+| command                               | description                                                |
+|---------------------------------------+------------------------------------------------------------|
+| =M-x composer=                        | Run =composer= sub command (with completing read)          |
+| =C-u M-x composer=                    | Run =composer= (global) sub command (with completing read) |
+| =M-x composer-install=                | Run =composer install= command                             |
+| =M-x composer-require=                | Run =composer require= command                             |
+| =C-u M-x composer-require=            | Run =composer require --dev= command                       |
+| =M-x composer-update=                 | Run =composer update= command                              |
+| =M-x composer-dump-autoload=          | Run =composer dump-autoload= command                       |
+| =M-x composer-run-script=             | Run =composer run-script= command                          |
+| =M-x composer-run-vendor-bin-command= | Run =command= in =vendor/bin=                              |
+| =M-x composer-find-json-file=         | Open =composer.json= of the project                        |
+| =M-x composer-view-lock-file=         | Open =composer.lock= of the project (as read-only)         |
+
+** API
+*** Function =composer-get-config(name)=
+
+#+BEGIN_SRC emacs-lisp
+(composer-get-config "bin-dir") ;=> "vendor/bin"
+#+END_SRC
+
+*** Function =composer-get-bin-dir()=
+
+#+BEGIN_SRC emacs-lisp
+(composer-get-bin-dir) ;=> "/path/to/current-project/vendor/bin"
+
+(let ((composer-global-command t))
+  (composer-get-bin-dir)) ;=> "/home/your-name/.composer/vendor/bin"
+#+END_SRC
+*** Special variable =composer-use-managed-phar=
+Use latest version of =composer.phar= managed by this package.  You can always use the latest version of it without having to set up Composer yourself.
+#+BEGIN_SRC emacs-lisp
+(let ((composer-use-managed-phar t)
+      (default-directory "/path/to/dir"))
+  (composer-install))
+#+END_SRC

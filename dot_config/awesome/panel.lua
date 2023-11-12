@@ -21,7 +21,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
-local theme = gears.filesystem.get_configuration_dir() .. "themes/2023.lua"
+local config = require("config")
+local theme = config.places.theme .. "/2023.lua"
 
 tagNames = {"󱓞 1", "󰈮 2", " 3", "󰇮 4", "󰦑 5", "󰭻 6", "󰝚 7", "󱛉 8", "󰊴 9", "󰖟 10"}
 

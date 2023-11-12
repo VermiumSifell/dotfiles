@@ -1,0 +1,8 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/keelerm84/php-refactor-mode.el.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

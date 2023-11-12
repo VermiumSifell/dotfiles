@@ -1,0 +1,4 @@
+(org-projectile-helm
+ :fetcher github
+ :repo "IvanMalison/org-projectile"
+ :files ("org-projectile-helm*.el"))

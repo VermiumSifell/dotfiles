@@ -1,0 +1,19 @@
+Installation
+============
+
+I put it in Org-mode contrib/ now.
+
+Usage
+=====
+
+You don't need to include `<? ... ?>` in src block now. Like this:
+
+```org
+#+BEGIN_SRC php
+echo "Hello, World!\n";
+#+END_SRC
+
+#+RESULTS:
+: Hello, World!
+
+```

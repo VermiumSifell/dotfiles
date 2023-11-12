@@ -1,0 +1,142 @@
+* 0.080050:*:cli:run!: doom sync
+* 0.080132:*:cli:context-parse: found command (doom)
+* 0.080344:*:cli:load: autoload /home/vermium/.config/emacs/lisp/cli/sync.el
+* 0.080378:*:cli:load: ~/.config/emacs/lisp/cli/sync.el nil
+* 0.080518:*:cli:load: ~/.config/emacs/lisp/cli/packages nil
+* 0.107298:*:cli:context-parse: found command (doom sync)
+* 0.107594:*:cli:context-execute: doom sync
+* 0.107913:*:cli:execute: (:before) ((input) (context . #s(doom-cli-context (25682 29412 833203 868000) 830098 0 (239 . 60) nil nil doom nil nil (doom sync) nil (sync) ((--jobs) (-j) (-p) (-u) (-c) (-e) (--eval) (-E) (--strict-load) (--load) (-L) (--color) (--benchmark) (--profile) (--pager) (--emacsdir) (--doomdir) (--verbose) (-v) (--debug) (-D) (--force) (-!)) ((t) ((doom sync)) ((doom) sync))  *doom-cli stdin*  *doom-cli stdout*  *doom-cli stderr* nil)) (_) (evals) (loads) (color?) (bench?) (profile) (pager) (emacsdir) (doomdir) (verbose?) (debug?) (force?))
+* 0.107964:*:cli:execute: (:before doom build) nil
+* 0.107987:*:cli:Initializing straight
+* 0.108016::context: +packages (cli t)
+* 0.108039::context:module: =[0 -110 -110 :core nil nil nil]
+* 0.149987:*:cli:Initializing recipes
+* 0.153430:*:cli:Installing core packages
+* 0.153473:*:cli:execute: (doom sync) ((jobs) (purge?) (update?) (noelc?) (noenvvar?))
+* 0.153576:*:cli:call: (doom sync) -> (doom profiles sync --reload)
+* 0.153648:*:cli:context-parse: found command (doom)
+* 0.153838:*:cli:load: autoload /home/vermium/.config/emacs/lisp/cli/profiles.el
+* 0.153871:*:cli:load: ~/.config/emacs/lisp/cli/profiles.el nil
+* 0.158854:*:cli:context-parse: found command (doom profiles)
+* 0.159062:*:cli:context-parse: found command (doom profiles sync)
+* 0.159249:*:cli:context-parse: found switch "--reload"
+* 0.159494:*:cli:context-execute: doom profiles sync
+* 0.159752:*:cli:execute: (:before) ((input) (context . #s(doom-cli-context (25682 29412 833203 868000) 830098 0 (239 . 60) nil nil doom nil nil (doom profiles sync) nil (sync) ((--reload . --reload) (--jobs) (-j) (-p) (-u) (-c) (-e) (--eval) (-E) (--strict-load) (--load) (-L) (--color) (--benchmark) (--profile) (--pager) (--emacsdir) (--doomdir) (--verbose) (-v) (--debug) (-D) (--force) (-!)) ((t) ((doom profiles sync) --reload) ((doom profiles) sync --reload) ((doom) profiles sync --reload))  *doom-cli stdin*  *doom-cli stdout*  *doom-cli stderr* nil)) (_) (evals) (loads) (color?) (bench?) (profile) (pager) (emacsdir) (doomdir) (verbose?) (debug?) (force?))
+* 0.159800:*:cli:execute: (doom profiles sync) ((reload? . --reload))
+! No profile loader found. Generating one...
+  > Regenerating it...
+  > Synchronizing 1 known profile...
+    - Added safe-mode
+    ✓ Regenerated profile loader: ~/.config/emacs/profiles/load.el
+> Synchronizing "default" profile...
+  * 0.164860:*:cli:call: (doom profiles sync) -> (doom env)
+  * 0.164953:*:cli:context-parse: found command (doom)
+  * 0.165157:*:cli:load: autoload /home/vermium/.config/emacs/lisp/cli/env.el
+  * 0.165188:*:cli:load: ~/.config/emacs/lisp/cli/env.el nil
+  * 0.167349:*:cli:context-parse: found command (doom env)
+  * 0.167579:*:cli:context-execute: doom env
+  * 0.167809:*:cli:execute: (:before) ((input) (context . #s(doom-cli-context (25682 29412 833203 868000) 830098 0 (239 . 60) nil nil doom nil nil (doom env) nil (sync) ((--deny) (-d) (--allow) (-a) (-o) (--deny-all) (--allow-all) (--reload . --reload) (--jobs) (-j) (-p) (-u) (-c) (-e) (--eval) (-E) (--strict-load) (--load) (-L) (--color) (--benchmark) (--profile) (--pager) (--emacsdir) (--doomdir) (--verbose) (-v) (--debug) (-D) (--force) (-!)) ((t) ((doom env)) ((doom) env))  *doom-cli stdin*  *doom-cli stdout*  *doom-cli stderr* nil)) (_) (evals) (loads) (color?) (bench?) (profile) (pager) (emacsdir) (doomdir) (verbose?) (debug?) (force?))
+  * 0.167858:*:cli:execute: (doom env) ((rules) (output-file) (deny-only) (allow-only))
+  > Regenerating envvars file
+    * 0.168280:*:cli:cli:env: deny OLDPWD
+    * 0.168362:*:cli:cli:env: deny DBUS_SESSION_BUS_ADDRESS
+    * 0.168516:*:cli:cli:env: deny XDG_RUNTIME_DIR
+    * 0.168575:*:cli:cli:env: deny XDG_VTNR
+    * 0.168618:*:cli:cli:env: deny SHLVL
+    * 0.168651:*:cli:cli:env: deny DISPLAY
+    * 0.168675:*:cli:cli:env: deny USER
+    * 0.168711:*:cli:cli:env: deny __DOOMPID
+    * 0.168762:*:cli:cli:env: deny TERM
+    * 0.168833:*:cli:cli:env: deny XDG_SESSION_CLASS
+    * 0.168889:*:cli:cli:env: deny XDG_SEAT_PATH
+    * 0.168919:*:cli:cli:env: deny XDG_CURRENT_DESKTOP
+    * 0.169069:*:cli:cli:env: deny __DOOMGPIPE
+    * 0.169114:*:cli:cli:env: deny HOME
+    * 0.169191:*:cli:cli:env: deny XAUTHORITY
+    * 0.169229:*:cli:cli:env: deny XDG_SESSION_TYPE
+    * 0.169293:*:cli:cli:env: deny PWD
+    * 0.169327:*:cli:cli:env: deny XDG_SEAT
+    * 0.169389:*:cli:cli:env: deny __DOOMSTEP
+    * 0.169450:*:cli:cli:env: deny __DOOMGEOM
+    * 0.169510:*:cli:cli:env: deny I3SOCK
+    * 0.169558:*:cli:cli:env: deny __DOOMPIPE
+    ✓ Generated ~/.config/emacs/.local/env
+  * 0.170385:*:cli:Initializing package.el
+  * 0.186181:*:cli:Initializing straight.el
+  * 0.186375::context: +packages (cli t)
+  * 0.186400::context:module: =[1 105 -105 :user nil nil nil]
+  * 0.186593::context:module: =[2 -111 -111 :config use-package nil nil]
+  * 0.187065::context:module: =[0 -110 -110 :core nil nil nil]
+  * 0.195072::context:module: =[1 105 -105 :user nil nil nil]
+  * 0.195288::context:module: =[3 0 0 :completion company nil nil]
+  * 0.196336::context:module: =[4 0 0 :completion vertico nil nil]
+  * 0.199816::context:module: =[5 0 0 :ui doom nil nil]
+  * 0.200592::context:module: =[6 0 0 :ui doom-dashboard nil nil]
+  * 0.200624::context:module: =[7 0 0 :ui emoji (+unicode) nil]
+  * 0.201057::context:module: =[8 0 0 :ui hl-todo nil nil]
+  * 0.201485::context:module: =[9 0 0 :ui indent-guides nil nil]
+  * 0.201919::context:module: =[10 0 0 :ui ligatures nil nil]
+  * 0.201969::context:module: =[11 0 0 :ui minimap nil nil]
+  * 0.202395::context:module: =[12 0 0 :ui modeline nil nil]
+  * 0.203471::context:module: =[13 0 0 :ui ophints nil nil]
+  * 0.204151::context:module: =[14 0 0 :ui popup (+defaults) nil]
+  * 0.204198::context:module: =[15 0 0 :ui vc-gutter (+pretty) nil]
+  * 0.204875::context:module: =[16 0 0 :ui vi-tilde-fringe nil nil]
+  * 0.205309::context:module: =[17 0 0 :ui workspaces nil nil]
+  * 0.205743::context:module: =[18 0 0 :editor evil (+everywhere) nil]
+  * 0.212027::context:module: =[19 0 0 :editor file-templates nil nil]
+  * 0.212508::context:module: =[20 0 0 :editor fold nil nil]
+  * 0.213867::context:module: =[21 0 0 :editor snippets nil nil]
+  * 0.214940::context:module: =[22 0 0 :emacs dired nil nil]
+  * 0.217083::context:module: =[23 0 0 :emacs electric nil nil]
+  * 0.217118::context:module: =[24 0 0 :emacs undo nil nil]
+  * 0.218432::context:module: =[25 0 0 :emacs vc nil nil]
+  * 0.220746::context:module: =[26 0 0 :checkers syntax nil nil]
+  * 0.221759::context:module: =[27 0 0 :tools eval (+overlay) nil]
+  * 0.222515::context:module: =[28 0 0 :tools lookup nil nil]
+  * 0.226171::context:module: =[29 0 0 :tools magit nil nil]
+  * 0.227700::context:module: =[30 0 0 :lang emacs-lisp nil nil]
+  * 0.230752::context:module: =[31 0 0 :lang markdown nil nil]
+  * 0.232419::context:module: =[32 0 0 :lang org nil nil]
+  * 0.245686::context:module: =[33 0 0 :lang sh nil nil]
+  * 0.246713::context:module: =[34 0 0 :config default (+bindings +smartparens) nil]
+  * 0.248075::context:module: =[1 105 -105 :user nil nil nil]
+  > Installing packages...
+    > Updating recipe repos...
+      > Updating recipes for melpa...
+      > Updating recipes for nongnu-elpa...
+      > Updating recipes for gnu-elpa-mirror...
+      > Updating recipes for el-get...
+      > Updating recipes for emacsmirror-mirror...
+    > Cloning emacs-emojify...
+    > Building emojify...
+      INFO     Scraping files for emojify-autoloads.el... 
+      INFO     Scraping files for emojify-autoloads.el...done
+    > Cloning highlight-indent-guides...
+    - Checked out highlight-indent-guides: cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6
+    > Building highlight-indent-guides...
+      INFO     Scraping files for highlight-indent-guides-autoloads.el... 
+    highlight-indent-guides: Warning: Use keywords rather than deprecated positional arguments to `define-minor-mode'
+      INFO     Scraping files for highlight-indent-guides-autoloads.el...done
+    > Cloning minimap...
+    - Checked out minimap: ed7490652a676c0510ed57d5366c445de20a370b
+    > Building minimap...
+      INFO     Scraping files for minimap-autoloads.el... 
+      INFO     Scraping files for minimap-autoloads.el...done
+    ✓ Installed 3 packages
+  > (Re)building packages...
+    - No packages need rebuilding
+  > Purging orphaned packages (for the emperor)...
+    - Skipping builds
+    - Skipping elpa packages
+    - Skipping repos
+    - Skipping regrafting
+  > (Re)building profile in /home/vermium/.config/emacs/.local/etc/@/...
+    > Deleting old init files...
+    > Generating 4 init files...
+    > Byte-compiling ~/.config/emacs/.local/etc/@init.28.el...
+    ✓ Built init.28.elc
+  - Restart Emacs or use 'M-x doom/reload' for changes to take effect
+* 12.461965:*:cli:Finished (GCs: 0, elapsed: 0.000000s)
+* 12.461965:*:cli:Finished (GCs: 0, elapsed: 0.000000s)
+✓ Finished in 12.46207s
