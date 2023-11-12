@@ -28,7 +28,7 @@ theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(0)
-theme.border_width = dpi(1)
+theme.border_width = dpi(2)
 theme.border_normal = "#585b70"
 theme.border_focus = "#a6e3a1"
 theme.border_marked = "#91231c"
@@ -132,7 +132,7 @@ theme.systray_icon_spacing = "4"
 
 theme.wibar = {
     bg = theme.bg_normal,
-    spacing = dpi(12),
+    spacing = dpi(12)
 }
 
 theme.wibar.item_height = dpi(30)
@@ -141,14 +141,20 @@ theme.wibar.height = 24
 -- TODO: Rename `theme.wibar.build_placement`
 function theme.wibar.build_placement(widget, wibar, args)
     return function(d)
-        aplacement.next_to_widget(d, gtable.crush({
-            geometry = hwidget.find_geometry(widget, wibar),
-            position = "bottom",
-            anchor = "middle",
-            outside = true,
-            screen = wibar.screen,
-            margins = theme.popup.margins,
-        }, args or {}))
+        aplacement.next_to_widget(
+            d,
+            gtable.crush(
+                {
+                    geometry = hwidget.find_geometry(widget, wibar),
+                    position = "bottom",
+                    anchor = "middle",
+                    outside = true,
+                    screen = wibar.screen,
+                    margins = theme.popup.margins
+                },
+                args or {}
+            )
+        )
     end
 end
 
