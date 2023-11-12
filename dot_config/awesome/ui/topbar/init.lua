@@ -10,6 +10,14 @@ local taglist_widget = require("ui.topbar.taglist")
 local layoutbox_widget = require("ui.topbar.layoutbox")
 
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local brightness_widget = require(
+                              "awesome-wm-widgets.brightness-widget.brightness")
+local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
+local net_speed_widget =
+    require("awesome-wm-widgets.net-speed-widget.net-speed")
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
 screen.connect_signal("request::desktop_decoration", function(s)
     local is_primary = s == screen.primary
@@ -63,7 +71,27 @@ screen.connect_signal("request::desktop_decoration", function(s)
     middle:add(s.mytextclock)
 
     local right = wibar:get_children_by_id("#right")[1]
-    right:add(battery_widget())
+    right:add(wibox.widget.textbox("|"))
+    right:add(battery_widget {
+        show_current_level = true,
+        display_notification = false
+    })
+    right:add(wibox.widget.textbox("|"))
+    right:add(volume_widget())
+    right:add(wibox.widget.textbox("|"))
+    right:add(cpu_widget())
+    right:add(wibox.widget.textbox("|"))
+    right:add(brightness_widget {
+        type = 'icon_and_text',
+        program = 'brightnessctl',
+        step = 2
+    })
+    right:add(wibox.widget.textbox("|"))
+    right:add(fs_widget {mounts = {"/", "/home", "/boot"}})
+    right:add(wibox.widget.textbox("|"))
+    right:add(net_speed_widget())
+    right:add(wibox.widget.textbox("|"))
+    right:add(ram_widget())
 
     if is_primary then
         right:add(wibox.widget.textbox("|"))
