@@ -11,13 +11,14 @@ local layoutbox_widget = require("ui.topbar.layoutbox")
 
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+--local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local ip_widget = require("ui.topbar.ip")
 local memory_widget = require("ui.topbar.memory")
+local cpu_widget = require("ui.topbar.cpu")
 
 screen.connect_signal(
     "request::desktop_decoration",
@@ -43,9 +44,22 @@ screen.connect_signal(
         -- Create a promptbox for each screen
         s.mypromptbox = awful.widget.prompt()
 
-        s.mytextclock = wibox.widget.textclock("%H:%M:%S", 1)
-        s.month_calendar = awful.widget.calendar_popup.month()
-        s.month_calendar:attach(s.mytextclock, "tc")
+        s.date =
+            wibox.widget {
+            {widget = wibox.widget.textbox, font = beautiful.icon_font, text = "󰥔"},
+            {widget = wibox.widget.textbox, text = " "},
+            wibox.widget.textclock("%Y-%m-%d"),
+            widget = wibox.layout.fixed.horizontal
+        }
+        s.time =
+            wibox.widget {
+            {widget = wibox.widget.textbox, font = beautiful.icon_font, text = "󰥔"},
+            {widget = wibox.widget.textbox, text = " "},
+            wibox.widget.textclock("%H:%M"),
+            widget = wibox.layout.fixed.horizontal
+        }
+        s.month_calendar = awful.widget.calendar_popup.month {screen = s, week_numbers = true}
+        s.month_calendar:attach(s.date, "tc")
 
         -- Create the wibox
         local wibar =
@@ -80,7 +94,7 @@ screen.connect_signal(
         left:add(s.mypromptbox)
 
         local middle = wibar:get_children_by_id("#middle")[1]
-        middle:add(s.mytextclock)
+        middle:add(s.date)
 
         local right = wibar:get_children_by_id("#right")[1]
 
@@ -104,7 +118,7 @@ screen.connect_signal(
         right:add(volume_widget())
         -- CPU
         right:add(wibox.widget.textbox(" | "))
-        right:add(cpu_widget())
+        right:add(cpu_widget)
         -- Memory
         right:add(wibox.widget.textbox(" | "))
         right:add(memory_widget)
@@ -119,6 +133,9 @@ screen.connect_signal(
                 display_notification = false
             }
         )
+        -- Time
+        right:add(wibox.widget.textbox(" | "))
+        right:add(s.time)
 
         if is_primary then
             right:add(wibox.widget.textbox(" | "))
