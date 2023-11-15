@@ -12,6 +12,7 @@ local awful = require("awful")
 local naughty = require("naughty")
 local watch = require("awful.widget.watch")
 local wibox = require("wibox")
+local beautiful = require("beautiful")
 local gfs = require("gears.filesystem")
 local dpi = require("beautiful").xresources.apply_dpi
 
@@ -26,7 +27,6 @@ local battery_widget = {}
 local function worker(user_args)
     local args = user_args or {}
 
-    local font = args.font or "Play 8"
     local path_to_icons = args.path_to_icons or "/usr/share/icons/Papirus-Dark/symbolic/status/"
     local show_current_level = args.show_current_level or false
     local margin_left = args.margin_left or 0
@@ -58,7 +58,8 @@ local function worker(user_args)
         wibox.widget {
         {
             id = "icon",
-            widget = wibox.widget.imagebox,
+            widget = wibox.widget.textbox,
+            --font = beautiful.icon_font,
             resize = false
         },
         valign = "center",
@@ -66,7 +67,6 @@ local function worker(user_args)
     }
     local level_widget =
         wibox.widget {
-        font = font,
         widget = wibox.widget.textbox
     }
 
@@ -171,34 +171,65 @@ local function worker(user_args)
             charge = charge / capacity
 
             if show_current_level then
-                level_widget.text = string.format("%d%%", charge)
-            end
-
-            if (charge >= 1 and charge < 15) then
-                batteryType = "battery-empty%s-symbolic"
-                if enable_battery_warning and status ~= "Charging" and os.difftime(os.time(), last_battery_check) > 300 then
-                    -- if 5 minutes have elapsed since the last warning
-                    last_battery_check = os.time()
-
-                    show_battery_warning()
-                end
-            elseif (charge >= 15 and charge < 40) then
-                batteryType = "battery-caution%s-symbolic"
-            elseif (charge >= 40 and charge < 60) then
-                batteryType = "battery-low%s-symbolic"
-            elseif (charge >= 60 and charge < 80) then
-                batteryType = "battery-good%s-symbolic"
-            elseif (charge >= 80 and charge <= 100) then
-                batteryType = "battery-full%s-symbolic"
+                level_widget.text = " " .. string.format("%d%%", charge)
             end
 
             if status == "Charging" then
-                batteryType = string.format(batteryType, "-charging")
+                if (charge >= 1 and charge < 10) then
+                    batteryType = "󰢜"
+                elseif (charge >= 10 and charge < 20) then
+                    batteryType = "󰂆"
+                elseif (charge >= 20 and charge < 30) then
+                    batteryType = "󰂇"
+                elseif (charge >= 30 and charge < 40) then
+                    batteryType = "󰂈"
+                elseif (charge >= 40 and charge < 50) then
+                    batteryType = "󰢝"
+                elseif (charge >= 50 and charge < 60) then
+                    batteryType = "󰂉"
+                elseif (charge >= 60 and charge < 70) then
+                    batteryType = "󰢞"
+                elseif (charge >= 70 and charge < 80) then
+                    batteryType = "󰂊"
+                elseif (charge >= 80 and charge < 90) then
+                    batteryType = "󰂋"
+                elseif (charge >= 90 and charge <= 100) then
+                    batteryType = "󰂅"
+                end
             else
-                batteryType = string.format(batteryType, "")
+                if (charge >= 1 and charge < 10) then
+                    batteryType = "󰁺"
+                    if
+                        enable_battery_warning and status ~= "charging" and
+                            os.difftime(os.time(), last_battery_check) > 300
+                     then
+                        -- if 5 minutes have elapsed since the last warning
+                        last_battery_check = os.time()
+
+                        show_battery_warning()
+                    end
+                elseif (charge >= 10 and charge < 20) then
+                    batteryType = "󰁻"
+                elseif (charge >= 20 and charge < 30) then
+                    batteryType = "󰁼"
+                elseif (charge >= 30 and charge < 40) then
+                    batteryType = "󰁽"
+                elseif (charge >= 40 and charge < 50) then
+                    batteryType = "󰁾"
+                elseif (charge >= 50 and charge < 60) then
+                    batteryType = "󰁿"
+                elseif (charge >= 60 and charge < 70) then
+                    batteryType = "󰂀"
+                elseif (charge >= 70 and charge < 80) then
+                    batteryType = "󰂁"
+                elseif (charge >= 80 and charge < 90) then
+                    batteryType = "󰂂"
+                elseif (charge >= 90 and charge <= 100) then
+                    batteryType = "󰁹"
+                end
             end
 
-            widget.icon:set_image(path_to_icons .. batteryType .. ".svg")
+            widget.icon:set_text(batteryType)
 
             -- Update popup text
             battery_popup.text = string.gsub(stdout, "\n$", "")
