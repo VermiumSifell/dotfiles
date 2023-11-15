@@ -19,25 +19,50 @@ local ruled = require("ruled")
 
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
-naughty.connect_signal("request::display_error", function(message, startup)
-    naughty.notification {
-        urgency = "critical",
-        title = "Oops, an error happened" ..
-            (startup and " during startup!" or "!"),
-        message = message
-    }
-end)
+naughty.connect_signal(
+    "request::display_error",
+    function(message, startup)
+        naughty.notification {
+            urgency = "critical",
+            title = "Oops, an error happened" .. (startup and " during startup!" or "!"),
+            message = message
+        }
+    end
+)
 
-ruled.notification.connect_signal("request::rules", function()
-    -- All notifications will match this rule.
-    ruled.notification.append_rule {
-        rule = {},
-        properties = {screen = awful.screen.preferred, implicit_timeout = 5}
-    }
-end)
+ruled.notification.connect_signal(
+    "request::rules",
+    function()
+        -- All notifications will match this rule.
+        ruled.notification.append_rule {
+            --rule = {},
+            except_any = {class = "Spotify"},
+            properties = {screen = awful.screen.preferred, implicit_timeout = 5}
+        }
+    end
+)
 
-naughty.connect_signal("request::display",
-                       function(n) naughty.layout.box {notification = n} end)
+naughty.connect_signal(
+    "request::display",
+    function(n)
+        naughty.layout.box {notification = n}
+    end
+)
+
+local naughty = require("naughty")
+local bling = require("bling")
+local playerctl = bling.signal.playerctl.lib()
+
+playerctl:connect_signal(
+    "metadata",
+    function(_, title, artist, album_path, album, new, player_name)
+        if new == true then
+            naughty.notify(
+                {title = "Song: " .. title, text = "Album: " .. album .. "\nArtist: " .. artist, image = album_path}
+            )
+        end
+    end
+)
 
 -- Startup
 awful.spawn("autorandr -c")
