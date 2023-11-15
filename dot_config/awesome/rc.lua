@@ -56,7 +56,7 @@ local playerctl = bling.signal.playerctl.lib()
 playerctl:connect_signal(
     "metadata",
     function(_, title, artist, album_path, album, new, player_name)
-        if new == true then
+        if new == true and player_name == "spotify" then
             naughty.notify(
                 {title = "Song: " .. title, text = "Album: " .. album .. "\nArtist: " .. artist, image = album_path}
             )
