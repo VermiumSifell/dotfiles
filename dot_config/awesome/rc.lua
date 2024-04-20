@@ -1,7 +1,7 @@
 pcall(require, "luarocks.loader")
 local gears = require("gears")
 local beautiful = require("beautiful")
-local theme_dir = gears.filesystem.get_configuration_dir() .. "theme/"
+local theme_dir = gears.filesystem.get_configuration_dir() .. "themes/2024/"
 beautiful.init(theme_dir .. "theme.lua")
 
 require("configuration")
