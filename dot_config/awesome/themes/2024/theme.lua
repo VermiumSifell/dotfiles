@@ -7,7 +7,7 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 local gears = require("gears")
-local themes_path = gears.filesystem.get_configuration_dir() .. "themes/2024"
+local themes_path = gears.filesystem.get_configuration_dir() .. "themes/2024/"
 
 local theme = {}
 
