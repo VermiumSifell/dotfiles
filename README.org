@@ -1,0 +1,5 @@
+#+title: Arch Dotfiles
+#+author: Vermium Sifell
+#+date: <2024-04-20 Sat>
+* Inspiration
+Thanks to [[https://codeberg.org/hidayry/dotfiles-awesomewm/][hidayry]] for his inspiring AwesomeWM config!
