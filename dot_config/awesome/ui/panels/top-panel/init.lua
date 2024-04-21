@@ -22,6 +22,7 @@ local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 
 --- Seperators
 local seperator = wibox.widget.textbox(" | ")
+local seperator2 = wibox.widget.textbox(" ")
 
 return function(s)
     local is_primary = s == screen.primary
@@ -32,8 +33,11 @@ return function(s)
             font = beautiful.icon_font,
             text = "󰥔"
         },
-        {widget = wibox.widget.textbox, text = " "},
-        wibox.widget.textclock("%Y-%m-%d"),
+        {
+            widget = wibox.widget.textclock("%Y-%m-%d"),
+            font = beautiful.font,
+        },
+        spacing = dpi(4),
         widget = wibox.layout.fixed.horizontal
     }
 
@@ -43,8 +47,11 @@ return function(s)
             font = beautiful.icon_font,
             text = "󰥔"
         },
-        {widget = wibox.widget.textbox, text = " "},
-        wibox.widget.textclock("%H:%M:%S", 1),
+        {
+            widget = wibox.widget.textclock("%H:%M:%S", 1),
+            font = beautiful.font,
+        },
+        spacing = dpi(4),
         widget = wibox.layout.fixed.horizontal
     }
 
@@ -62,19 +69,17 @@ return function(s)
         widget = {
             layout = wibox.layout.align.horizontal,
             expand = "none",
-            {id = "#left", layout = wibox.layout.fixed.horizontal},
             {
-                layout = wibox.container.margin,
-                {
-                    id = "#middle",
-                    layout = wibox.layout.fixed.horizontal,
-                    spacing = dpi(12)
-                }
+                id = "#left",
+                layout = wibox.layout.fixed.horizontal
+            },
+            {
+                id = "#middle",
+                layout = wibox.layout.fixed.horizontal,
             },
             {
                 id = "#right",
                 layout = wibox.layout.fixed.horizontal,
-                reverse = true
             }
         }
     }
@@ -87,37 +92,37 @@ return function(s)
 
     local right = s.top_panel:get_children_by_id("#right")[1]
 
-    right:add(net_speed_widget())
+    --right:add(net_speed_widget())
     -- Filesystem
-    right:add(seperator)
-    right:add(fs_widget {mounts = {"/"}})
-    right:add(seperator)
-    right:add(fs_widget {mounts = {"/home"}})
+    -- right:add(seperator)
+    -- right:add(fs_widget {mounts = {"/"}})
+    -- right:add(seperator)
+    -- right:add(fs_widget {mounts = {"/home"}})
     -- Brightness
-    right:add(seperator)
-    right:add(brightness_widget {
-        type = "icon_and_text",
-        program = "brightnessctl",
-        step = 5
-    })
-    -- Volume
-    right:add(seperator)
-    right:add(volume_widget())
+    --right:add(seperator)
+    --right:add(brightness_widget {
+        --type = "icon_and_text",
+        --program = "brightnessctl",
+        --step = 5
+    --})
+    ---- Volume
+    --right:add(seperator)
+    --right:add(volume_widget())
     -- CPU
     right:add(seperator)
     right:add(cpu_widget)
-    -- Memory
+    ---- Memory
     right:add(seperator)
     right:add(memory_widget)
-    -- Network
-    right:add(seperator)
-    right:add(ip_widget)
-    -- Battery
-    right:add(seperator)
-    right:add(battery_widget {
-        show_current_level = true,
-        display_notification = false
-    })
+    ---- Network
+    --right:add(seperator)
+    --right:add(ip_widget)
+    ---- Battery
+    --right:add(seperator)
+    --right:add(battery_widget {
+        --show_current_level = true,
+        --display_notification = false
+    --})
     -- Time
     right:add(seperator)
     right:add(s.time)

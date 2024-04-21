@@ -4,14 +4,12 @@ local watch = require("awful.widget.watch")
 local gears = require("gears")
 local beautiful = require("beautiful")
 
-local interface = "wlo1"
-
 -- Configure widget appearance
 local cpu_widget_font = beautiful.font -- Set the font here (family, name, size...) e.g. "sans 12"
 local cpu_widget_fg_color = "#ffffff"
 
 -- local command = "top -bn1 | grep load | awk \'{printf "CPU Load: %.2f\n", $(NF-2)}\'"
-local command = 'top -bn1 | grep load | awk \'{printf "%.2f%", $(NF-2)}\''
+local command = 'top -bn1 | grep load | awk \'{printf "%.f%", $(NF-2)}\''
 
 -- Create the text widget
 local cpu_widget = wibox.widget {
@@ -28,7 +26,7 @@ local cpu_widget = wibox.widget {
 }
 
 gears.timer {
-    timeout = 10, -- seconds
+    timeout = 1, -- seconds
     call_now = true,
     autostart = true,
     callback = function()

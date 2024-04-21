@@ -10,13 +10,14 @@ local interface = "wlo1"
 local memory_widget_font = beautiful.font -- Set the font here (family, name, size...) e.g. "sans 12"
 local memory_widget_fg_color = "#ffffff"
 
-local command = 'free -m | awk \'/Mem/{printf "%.1f/%.1fGB (%.2f%%)", $3/1024,$2/1024,$3*100/$2}\''
+--local command = 'free -m | awk \'/Mem/{printf "%.1f/%.1fGB (%.2f%%)", $3/1024,$2/1024,$3*100/$2}\''
+local command = 'free -m | awk \'/Mem/{printf "%.f%%", $3/1024,$2/1024,$3*100/$2}\''
 
 -- Create the text widget
 local memory_widget = wibox.widget {
     {
         widget = wibox.widget.textbox,
-        text = "󰍛",
+        text = "",
         font = beautiful.icon_font
     },
     {
@@ -27,7 +28,7 @@ local memory_widget = wibox.widget {
 }
 
 gears.timer {
-    timeout = 10, -- seconds
+    timeout = 1, -- seconds
     call_now = true,
     autostart = true,
     callback = function()

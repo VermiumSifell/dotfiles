@@ -11,8 +11,8 @@ local themes_path = gears.filesystem.get_configuration_dir() .. "themes/2024/"
 
 local theme = {}
 
-theme.font = "pango:JetBrainsMono Nerd Font Mono,JetBrainsMono NFM SemiBold 8"
-theme.icon_font = "pango:JetBrainsMono Nerd Font Mono,JetBrainsMono NFM SemiBold 12"
+theme.font = "JetBrainsMono Nerd Font Propo 9"
+theme.icon_font = "JetBrainsMono Nerd Font Propo 10"
 --"pango:JetbrainsMono Nerd Font 8"
 
 theme.bg_normal = "#11111b"
