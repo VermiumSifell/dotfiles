@@ -9,16 +9,17 @@ local apps = require("configuration.apps")
 --- Widgets
 local taglist_widget = require("ui.panels.top-panel.taglist")
 local layoutbox_widget = require("ui.panels.top-panel.layoutbox")
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
-local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
-local fs_widget = require("awesome-wm-widgets.fs-widget.fs-widget")
-local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
-local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
-local ip_widget = require("ui.panels.top-panel.ip")
+--local ip_widget = require("ui.panels.top-panel.ip")
 local memory_widget = require("ui.panels.top-panel.memory")
 local cpu_widget = require("ui.panels.top-panel.cpu")
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+
+local battery_widget = require("modules.awesome-wm-widgets.battery-widget.battery")
+local battery_widget = require("modules.awesome-wm-widgets.battery-widget.battery")
+local volume_widget = require("modules.awesome-wm-widgets.volume-widget.volume")
+local brightness_widget = require("modules.awesome-wm-widgets.brightness-widget.brightness")
+local fs_widget = require("modules.awesome-wm-widgets.fs-widget.fs-widget")
+local net_speed_widget = require("modules.awesome-wm-widgets.net-speed-widget.net-speed")
+local ram_widget = require("modules.awesome-wm-widgets.ram-widget.ram-widget")
 
 --- Seperators
 local seperator = wibox.widget.textbox(" | ")
@@ -28,11 +29,11 @@ return function(s)
     local is_primary = s == screen.primary
 
     s.date = wibox.widget {
-        {
-            widget = wibox.widget.textbox,
-            font = beautiful.icon_font,
-            text = "󰥔"
-        },
+        --- {
+            --- widget = wibox.widget.textbox,
+            --- font = beautiful.icon_font,
+            --- text = "󰥔"
+        --- },
         {
             widget = wibox.widget.textclock("%Y-%m-%d"),
             font = beautiful.font,
@@ -42,20 +43,20 @@ return function(s)
     }
 
     s.time = wibox.widget {
-        {
-            widget = wibox.widget.textbox,
-            font = beautiful.icon_font,
-            text = "󰥔"
-        },
+        --- {
+            --- widget = wibox.widget.textbox,
+            --- font = beautiful.icon_font,
+            --- text = "󰥔"
+        --- },
         {
             widget = wibox.widget.textclock("%H:%M:%S", 1),
             font = beautiful.font,
         },
-        spacing = dpi(4),
-        widget = wibox.layout.fixed.horizontal
-    }
+         spacing = dpi(4),
+         widget = wibox.layout.fixed.horizontal
+     }
 
-    s.month_calendar = awful.widget.calendar_popup.month {
+     s.month_calendar = awful.widget.calendar_popup.month {
         screen = s,
         week_numbers = true
     }
