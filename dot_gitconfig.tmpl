@@ -1,6 +1,6 @@
 [user]
-	email = {{ .email }}
-	name = {{ .name }}
+	email = {{ .email | quote }}
+	name = {{ .name | quote }}
 	signingkey = ~/.ssh/id_ed25519.pub
 [commit]
 	gpgsign = true
