@@ -6,11 +6,12 @@ local helpers = require("helpers")
 local function autostart_apps()
     --- Compositor
     helpers.run.check_if_running("picom", nil, function()
-        awful.spawn("picom --config " .. config_dir ..
-                        "configuration/picom.conf -b", false)
+        awful.spawn("picom", false)
     end)
 
-     helpers.run.run_once_grep("autorandr -c")
+    helpers.run.run_once_grep("autorandr -c")
+
+    helpers.run.run_once_grep("flameshot")
     --- Music Server
     -- helpers.run.run_once_grep("mpd")
     -- helpers.run.run_once_grep("mpDris2")

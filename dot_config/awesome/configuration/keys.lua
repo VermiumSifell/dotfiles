@@ -40,10 +40,10 @@ awful.keyboard.append_global_keybindings({
 
     --- WM
     --- Restart awesome
-    awful.key({ super, shift }, "r", awesome.restart, { description = "reload awesome", group = "WM" }),
+    awful.key({ super, ctrl }, "r", awesome.restart, { description = "reload awesome", group = "WM" }),
 
     --- Quit awesome
-    awful.key({ super, shift }, "e", awesome.quit, { description = "quit awesome", group = "WM" }),
+    awful.key({ super, ctrl }, "e", awesome.quit, { description = "quit awesome", group = "WM" }),
 
     --- Show help
     awful.key({ super }, "s", hotkeys_popup.show_help, { description = "show help", group = "WM" }),
@@ -65,7 +65,7 @@ awful.keyboard.append_global_keybindings({
 
     --- Hotkeys
     --- Music player
-    awful.key({ super }, "grave", function()
+    awful.key({ super }, "section", function()
         awful.spawn.with_shell(apps.default.music_player)
     end, { description = "open music client", group = "hotkeys" }),
 
@@ -90,13 +90,13 @@ awful.keyboard.append_global_keybindings({
 
     --- Music
     awful.key({}, "XF86AudioPlay", function()
-        awful.spawn("playerctl --player=spotify,%any play-pause", false)
+        awful.spawn("playerctl --player=spotify_player,spotify,%any play-pause", false)
     end, { description = "play pause music", group = "hotkeys" }),
     awful.key({}, "XF86AudioPrev", function()
-        awful.spawn("playerctl --player=spotify,%any previous", false)
+        awful.spawn("playerctl --player=spotify_player,spotify,%any previous", false)
     end, { description = "previous music", group = "hotkeys" }),
     awful.key({}, "XF86AudioNext", function()
-        awful.spawn("playerctl --player=spotify,%any next", false)
+        awful.spawn("playerctl --player=spotify_player,spotify,%any next", false)
     end, { description = "next music", group = "hotkeys" }),
 
     --- Calculator Overlay

@@ -9,17 +9,17 @@ return {
         --- Default terminal emulator
         terminal = "alacritty",
         --- Default music client
-        music_player = "alacritty --class music -e ncmpcpp",
+        music_player = "alacritty --class music -e spotify_player",
         --- Default text editor
         text_editor = "emacs",
         --- Default code editor
-        code_editor = "codium",
+        code_editor = "emacs",
         --- Default web browser
         web_browser = "firefox",
         --- Default file manager
         file_manager = "nemo",
         --- Default network manager
-        network_manager = "networkmanager_dmenu",
+        network_manager = "nmtui",
         --- Default clipboard
         clip = utils_dir .. "/clip/clip.sh",
         --- Default launcher

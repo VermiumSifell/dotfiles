@@ -14,7 +14,6 @@ local memory_widget = require("ui.panels.top-panel.memory")
 local cpu_widget = require("ui.panels.top-panel.cpu")
 
 local battery_widget = require("modules.awesome-wm-widgets.battery-widget.battery")
-local battery_widget = require("modules.awesome-wm-widgets.battery-widget.battery")
 local volume_widget = require("modules.awesome-wm-widgets.volume-widget.volume")
 local brightness_widget = require("modules.awesome-wm-widgets.brightness-widget.brightness")
 local fs_widget = require("modules.awesome-wm-widgets.fs-widget.fs-widget")

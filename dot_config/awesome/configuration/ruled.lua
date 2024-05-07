@@ -60,7 +60,7 @@ ruled.client.connect_signal("request::rules", function()
 
     -- Tag 7
     ruled.client.append_rule {
-        rule_any = {class = {"Spotify"}},
+        rule_any = {class = { "Spotify", "music" }},
         properties = {tag = tags.names[7], switch_to_tags = true}
     }
 
