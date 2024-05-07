@@ -1,6 +1,11 @@
 [user]
-	email = {{ .email | quote }}
-	name = {{ .name | quote }}
+	{{- if eq .chezmoi.hostname "AxelLaptop03" }}
+	email = axel@scalability.se
+	name = Axel Olausson Holtenäs
+	{{- else }}
+	email = vermium@zyner.org
+	name = Vermium Sifell
+	{{- end }}
 	signingkey = /home/vermium/.ssh/id_ed25519.pub
 [commit]
 	gpgsign = true
