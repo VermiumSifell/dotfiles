@@ -1,12 +1,11 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    fastfetch
 end
 
-#echo # Print a empty row to make pfetch look better
-#pfetch
-macchina
+set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+set -gx EDITOR vim
 
+# Keybindings
 bind \e\[3\;5~ kill-word
 bind \cH backward-kill-word
-fish_ssh_agent
-set -gx EDITOR vim

@@ -1,0 +1,37 @@
+theme = "Catppuccin-mocha"
+client_id = "5c24693847f54b728c2c17182efd23f2"
+client_port = 8080
+playback_format = """
+{track} • {artists}
+{album}
+{metadata}"""
+tracks_playback_limit = 50
+app_refresh_duration_in_ms = 32
+playback_refresh_duration_in_ms = 0
+page_size_in_rows = 20
+play_icon = "▶"
+pause_icon = "▌▌"
+liked_icon = "♥"
+border_type = "Plain"
+progress_bar_type = "Rectangle"
+playback_window_position = "Top"
+playback_window_width = 6
+enable_media_control = true
+enable_streaming = "Always"
+enable_cover_image_cache = true
+default_device = "Axel Bedroom"
+
+[copy_command]
+command = "xclip"
+args = [
+    "-sel",
+    "c",
+]
+
+[device]
+name = "AxelLaptop01"
+device_type = "speaker"
+volume = 70
+bitrate = 320
+audio_cache = false
+normalization = false
