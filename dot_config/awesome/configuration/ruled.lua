@@ -25,9 +25,9 @@ ruled.client.connect_signal("request::rules", function()
 
     -- Add titlebars to dialogs
     ruled.client.append_rule {
-        id = "titlebars",
-        rule_any = {type = {"dialog"}},
-        properties = {titlebars_enabled = true}
+        id = "dialogs",
+        rule_any = { type = { "dialog" } },
+        properties = { titlebars_enabled = true, floating = true, ontop = true }
     }
 
     -- Tag 1
