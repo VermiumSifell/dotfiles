@@ -13,23 +13,70 @@ local theme = {}
 
 theme.font = "JetBrainsMono Nerd Font Propo 9"
 theme.icon_font = "JetBrainsMono Nerd Font Propo 10"
+theme.taglist_font = "JetBrainsMono Nerd Font Propo 12"
+
 --"pango:JetbrainsMono Nerd Font 8"
 
-theme.bg_normal = "#11111b"
-theme.bg_focus = "#11111b"
-theme.bg_urgent = "#ff0000"
-theme.bg_minimize = "#444444"
-theme.bg_systray = theme.bg_normal
+theme.catppuccin_base = "#1e1e2e" --- Base 	#1e1e2e 	rgb(30, 30, 46) 	hsl(240, 21%, 15%)
+theme.catppuccin_green = "#a6e3a1" --- Green 	#a6e3a1 	rgb(166, 227, 161) 	hsl(115, 54%, 76%)
+theme.catppuccin_text = "#cdd6f4" --- Text 	#cdd6f4 	rgb(205, 214, 244) 	hsl(226, 64%, 88%)
+theme.catppuccin_red = "#f38ba8" --- Red 	#f38ba8 	rgb(243, 139, 168) 	hsl(343, 81%, 75%)
+theme.catppuccin_surface0 = "#313244" --- Surface0 	#313244 	rgb(49, 50, 68) 	hsl(237, 16%, 23%)
+theme.catppuccin_peach = "#fab387" --- Peach 	#fab387 	rgb(250, 179, 135) 	hsl(23, 92%, 75%)
+theme.catppuccin_mantle = "#181825" --- Mantle 	#181825 	rgb(24, 24, 37) 	hsl(240, 21%, 12%)
+theme.catppuccin_pink = "#f5c2e7" --- Pink 	#f5c2e7 	rgb(245, 194, 231) 	hsl(316, 72%, 86%)
 
-theme.fg_normal = "#cdd6f4"
-theme.fg_focus = "#a6e3a1"
-theme.fg_urgent = "#ffffff"
-theme.fg_minimize = "#ffffff"
+--- Rosewater 	#f5e0dc 	rgb(245, 224, 220) 	hsl(10, 56%, 91%)
+--- Flamingo 	#f2cdcd 	rgb(242, 205, 205) 	hsl(0, 59%, 88%)
+--- Mauve 	#cba6f7 	rgb(203, 166, 247) 	hsl(267, 84%, 81%)
+--- Maroon 	#eba0ac 	rgb(235, 160, 172) 	hsl(350, 65%, 77%)
+--- Yellow 	#f9e2af 	rgb(249, 226, 175) 	hsl(41, 86%, 83%)
+--- Teal 	#94e2d5 	rgb(148, 226, 213) 	hsl(170, 57%, 73%)
+--- Sky 	#89dceb 	rgb(137, 220, 235) 	hsl(189, 71%, 73%)
+--- Sapphire 	#74c7ec 	rgb(116, 199, 236) 	hsl(199, 76%, 69%)
+--- Blue 	#89b4fa 	rgb(137, 180, 250) 	hsl(217, 92%, 76%)
+--- Lavender 	#b4befe 	rgb(180, 190, 254) 	hsl(232, 97%, 85%)
+--- Subtext1 	#bac2de 	rgb(186, 194, 222) 	hsl(227, 35%, 80%)
+--- Subtext0 	#a6adc8 	rgb(166, 173, 200) 	hsl(228, 24%, 72%)
+--- Overlay2 	#9399b2 	rgb(147, 153, 178) 	hsl(228, 17%, 64%)
+--- Overlay1 	#7f849c 	rgb(127, 132, 156) 	hsl(230, 13%, 55%)
+--- Overlay0 	#6c7086 	rgb(108, 112, 134) 	hsl(231, 11%, 47%)
+--- Surface2 	#585b70 	rgb(88, 91, 112) 	hsl(233, 12%, 39%)
+--- Surface1 	#45475a 	rgb(69, 71, 90) 	hsl(234, 13%, 31%)
+--- Crust 	#11111b 	rgb(17, 17, 27) 	hsl(240, 23%, 9%)
 
-theme.useless_gap = dpi(0)
-theme.border_width = dpi(2)
-theme.border_normal = "#585b70"
-theme.border_focus = "#a6e3a1"
+
+-- Background
+theme.bg_normal = theme.catppuccin_base
+theme.bg_focus = theme.catppuccin_green
+theme.bg_urgent = theme.catppuccin_red
+theme.bg_minimize = "#ffffff"
+theme.bg_systray = theme.catppuccin_surface0
+
+-- Foreground
+theme.fg_normal = theme.catppuccin_text
+theme.fg_focus = theme.catppuccin_base
+theme.fg_urgent = theme.catppuccin_base
+theme.fg_minimize = theme.catppuccin_text
+
+-- Taglist
+theme.taglist_bg_empty = theme.catppuccin_surface0
+theme.taglist_bg_occupied = theme.catppuccin_peach
+theme.taglist_bg_focus = theme.catppuccin_green
+--- theme.taglist_bg_volatile = "#00000000"
+--- theme.taglist_bg_urgent = "#00000000"
+
+theme.taglist_fg_empty = theme.catppuccin_text
+theme.taglist_fg_occupied = theme.catppuccin_base
+theme.taglist_fg_focus = theme.catppuccin_base
+theme.taglist_fg_volatile = theme.catppuccin_base
+theme.taglist_fg_urgent = theme.catppuccin_base
+
+
+theme.useless_gap = dpi(2)
+theme.border_width = dpi(3)
+theme.border_normal = theme.bg_normal
+theme.border_focus = theme.catppuccin_green
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -47,7 +94,7 @@ theme.border_marked = "#91231c"
 
 -- theme.taglist_bg_focus = "#FFFFFF"
 
-theme.taglist_fg_occupied = "#fab387"
+--theme.taglist_fg_occupied = "#fab387"
 
 -- Generate taglist squares:
 -- local taglist_square_size = dpi(4)
@@ -127,7 +174,8 @@ theme.awesome_icon = theme_assets.awesome_icon(theme.menu_height, theme.bg_focus
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = "Papirus-Dark"
 
-theme.systray_icon_spacing = "4"
+theme.systray_icon_spacing = dpi(10)
+
 
 theme.wibar = {
     bg = theme.bg_normal,
@@ -135,7 +183,7 @@ theme.wibar = {
 }
 
 theme.wibar.item_height = dpi(30)
-theme.wibar.height = 24
+theme.wibar.height = dpi(24)
 
 -- TODO: Rename `theme.wibar.build_placement`
 function theme.wibar.build_placement(widget, wibar, args)

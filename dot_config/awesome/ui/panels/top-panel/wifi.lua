@@ -7,10 +7,16 @@ local beautiful = require("beautiful")
 -- local command = "top -bn1 | grep load | awk \'{printf "CPU Load: %.2f\n", $(NF-2)}\'"
 local command = 'top -bn1 | grep load | awk \'{printf "%.f%", $(NF-2)}\''
 
--- create empty textbox widget --
-local text_cpu_name = wibox.widget {widget = wibox.widget.textbox}
+---| CREATE CUSTOM WIFI WIDGET |---
 
-local update_cpu_name = function(cpu) text_cpu_name.text = " " .. cpu end
+-- create empty textbox widget -- 
+local text_wifi_name = wibox.widget {
+    font = "Caskaydia Nerd Font Bold 8",
+    widget = wibox.widget.textbox
+}
+
+local update_wifi_name =
+    function(wifi) text_wifi_name.text = "   " .. wifi end
 
 -- fill the textbox widget with the output of the shell script --
 gears.timer {
@@ -18,27 +24,28 @@ gears.timer {
     call_now = true,
     autostart = true,
     callback = function()
-        awful.spawn.easy_async_with_shell(command, function(stdout)
-            local cpu = stdout
-            update_cpu_name(cpu)
+        awful.spawn.easy_async("/home/vermium/.config/awesome/scripts/wifi.sh",
+                               function(stdout)
+            local wifi = stdout
+            update_wifi_name(wifi)
 
         end)
 
     end
 }
 
--- create a container for the widget --
-container_cpu_widget = {
+-- create a container for the widget -- 
+container_wifi_widget = {
     {
         {
-            {widget = text_cpu_name},
+            {widget = text_wifi_name},
             left = 10,
             right = 10,
             top = 6,
             bottom = 6,
             widget = wibox.container.margin
         },
-        fg = beautiful.catppuccin_red,
+        fg = beautiful.catppuccin_peach,
         bg = beautiful.catppuccin_surface0,
         widget = wibox.container.background
     },
@@ -47,4 +54,4 @@ container_cpu_widget = {
     widget = wibox.container.margin
 }
 
-return container_cpu_widget
+return container_wifi_widget
