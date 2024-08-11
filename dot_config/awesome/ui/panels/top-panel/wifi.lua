@@ -15,7 +15,7 @@ local text_wifi_name = wibox.widget {
 }
 
 local update_wifi_name =
-    function(wifi) text_wifi_name.text = "   " .. wifi end
+    function(wifi) text_wifi_name.text = " " .. wifi end
 
 -- fill the textbox widget with the output of the shell script --
 gears.timer {
