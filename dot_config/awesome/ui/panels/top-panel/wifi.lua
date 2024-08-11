@@ -5,13 +5,12 @@ local gears = require("gears")
 local beautiful = require("beautiful")
 
 -- local command = "top -bn1 | grep load | awk \'{printf "CPU Load: %.2f\n", $(NF-2)}\'"
-local command = 'top -bn1 | grep load | awk \'{printf "%.f%", $(NF-2)}\''
+local command = 'iwgetid -r'
 
 ---| CREATE CUSTOM WIFI WIDGET |---
 
 -- create empty textbox widget -- 
 local text_wifi_name = wibox.widget {
-    font = "Caskaydia Nerd Font Bold 8",
     widget = wibox.widget.textbox
 }
 
@@ -24,7 +23,7 @@ gears.timer {
     call_now = true,
     autostart = true,
     callback = function()
-        awful.spawn.easy_async("/home/vermium/.config/awesome/scripts/wifi.sh",
+        awful.spawn.easy_async(command,
                                function(stdout)
             local wifi = stdout
             update_wifi_name(wifi)
