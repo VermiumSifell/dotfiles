@@ -1,1 +1,0 @@
-/home/vermium/.config/emacs/.local/straight/repos/latex-preview-pane/message-latex-preview-pane-welcome.txt

@@ -1,5 +1,0 @@
-**/*.rs.bk
-
-tsc-dyn.*
-DYN-VERSION
-target/

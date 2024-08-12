@@ -1,9 +1,0 @@
-;; Keg
-
-(source gnu melpa)
-
-(package
-  (logito
-   (recipe . (logito :fetcher github :repo "sigma/logito"))))
-
-(dev-dependency mocker)

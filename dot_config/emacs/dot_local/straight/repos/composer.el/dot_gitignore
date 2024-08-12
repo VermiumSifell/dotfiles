@@ -1,5 +1,0 @@
-*-autoloads.el
-*.elc
-.cask
-composer.lock
-vendor/*

@@ -1,1 +1,0 @@
-/home/vermium/.config/emacs/.local/straight/repos/magit/docs/magit-section.texi

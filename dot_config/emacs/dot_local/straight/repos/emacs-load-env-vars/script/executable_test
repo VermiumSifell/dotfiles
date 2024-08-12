@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -e
-
-cask exec ert-runner

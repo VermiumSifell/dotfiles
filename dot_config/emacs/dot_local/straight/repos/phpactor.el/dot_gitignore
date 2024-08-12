@@ -1,6 +1,0 @@
-*.elc
-*.rej
-/.cask
-/flycheck*
-/phpactor-autoloads.el
-vendor

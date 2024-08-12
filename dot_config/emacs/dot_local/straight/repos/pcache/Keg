@@ -1,7 +1,0 @@
-;; Keg
-
-(source gnu melpa)
-
-(package
-  (pcache
-   (recipe . (pcache :fetcher github :repo "sigma/pcache"))))
