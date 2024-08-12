@@ -10,12 +10,9 @@ local command = 'iwgetid -r'
 ---| CREATE CUSTOM WIFI WIDGET |---
 
 -- create empty textbox widget -- 
-local text_wifi_name = wibox.widget {
-    widget = wibox.widget.textbox
-}
+local text_wifi_name = wibox.widget {widget = wibox.widget.textbox}
 
-local update_wifi_name =
-    function(wifi) text_wifi_name.text = " " .. wifi end
+local update_wifi_name = function(wifi) text_wifi_name.text = " " .. wifi end
 
 -- fill the textbox widget with the output of the shell script --
 gears.timer {
@@ -23,8 +20,7 @@ gears.timer {
     call_now = true,
     autostart = true,
     callback = function()
-        awful.spawn.easy_async(command,
-                               function(stdout)
+        awful.spawn.easy_async(command, function(stdout)
             local wifi = stdout
             update_wifi_name(wifi)
 
@@ -36,21 +32,17 @@ gears.timer {
 -- create a container for the widget -- 
 container_wifi_widget = {
     {
-        {
-            {widget = text_wifi_name},
-            left = 10,
-            right = 10,
-            top = 6,
-            bottom = 6,
-            widget = wibox.container.margin
-        },
-        fg = beautiful.catppuccin_peach,
-        bg = beautiful.catppuccin_surface0,
-        widget = wibox.container.background
+        {widget = text_wifi_name},
+        top = beautiful.top_panel_inner_margin_top,
+        bottom = beautiful.top_panel_inner_margin_bottom,
+        right = beautiful.top_panel_inner_margin_right,
+        left = beautiful.top_panel_inner_margin_left,
+
+        widget = wibox.container.margin
     },
-    top = 5,
-    bottom = 5,
-    widget = wibox.container.margin
+    fg = beautiful.catppuccin_sapphire,--crust,
+    bg = beautiful.catppuccin_surface0, --mauve,--lavender, --surface0,
+    widget = wibox.container.background
 }
 
 return container_wifi_widget

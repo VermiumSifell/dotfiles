@@ -25,26 +25,30 @@ theme.catppuccin_surface0 = "#313244" --- Surface0 	#313244 	rgb(49, 50, 68) 	hs
 theme.catppuccin_peach = "#fab387" --- Peach 	#fab387 	rgb(250, 179, 135) 	hsl(23, 92%, 75%)
 theme.catppuccin_mantle = "#181825" --- Mantle 	#181825 	rgb(24, 24, 37) 	hsl(240, 21%, 12%)
 theme.catppuccin_pink = "#f5c2e7" --- Pink 	#f5c2e7 	rgb(245, 194, 231) 	hsl(316, 72%, 86%)
+theme.catppuccin_sky = "#89dceb" --- Sky 	#89dceb 	rgb(137, 220, 235) 	hsl(189, 71%, 73%)
+theme.catppuccin_lavender = "#b4befe" --- Lavender 	#b4befe 	rgb(180, 190, 254) 	hsl(232, 97%, 85%)
+theme.catppuccin_mauve = "#cba6f7" --- Mauve 	#cba6f7 	rgb(203, 166, 247) 	hsl(267, 84%, 81%)
+theme.catppuccin_rosewater = "#f5e0dc" --- Rosewater 	#f5e0dc 	rgb(245, 224, 220) 	hsl(10, 56%, 91%)
+theme.catppuccin_teal = "#94e2d5" --- Teal 	#94e2d5 	rgb(148, 226, 213) 	hsl(170, 57%, 73%)
+theme.catppuccin_overlay0 = "#6c7086" --- Overlay0 	#6c7086 	rgb(108, 112, 134) 	hsl(231, 11%, 47%)
+theme.catppuccin_maroon = "#eba0ac" --- Maroon 	#eba0ac 	rgb(235, 160, 172) 	hsl(350, 65%, 77%)
+theme.catppuccin_sapphire = "#74c7ec" --- Sapphire 	#74c7ec 	rgb(116, 199, 236) 	hsl(199, 76%, 69%)
+theme.catppuccin_crust = "#11111b" --- Crust 	#11111b 	rgb(17, 17, 27) 	hsl(240, 23%, 9%)
+theme.catppuccin_yellow = "#f9e2af" --- Yellow 	#f9e2af 	rgb(249, 226, 175) 	hsl(41, 86%, 83%)
+theme.catppuccin_blue = "#89b4fa" --- Blue 	#89b4fa 	rgb(137, 180, 250) 	hsl(217, 92%, 76%)
+theme.catppuccin_overlay2 = "#9399b2" --- Overlay2 	#9399b2 	rgb(147, 153, 178) 	hsl(228, 17%, 64%)
 
---- Rosewater 	#f5e0dc 	rgb(245, 224, 220) 	hsl(10, 56%, 91%)
 --- Flamingo 	#f2cdcd 	rgb(242, 205, 205) 	hsl(0, 59%, 88%)
---- Mauve 	#cba6f7 	rgb(203, 166, 247) 	hsl(267, 84%, 81%)
---- Maroon 	#eba0ac 	rgb(235, 160, 172) 	hsl(350, 65%, 77%)
---- Yellow 	#f9e2af 	rgb(249, 226, 175) 	hsl(41, 86%, 83%)
---- Teal 	#94e2d5 	rgb(148, 226, 213) 	hsl(170, 57%, 73%)
---- Sky 	#89dceb 	rgb(137, 220, 235) 	hsl(189, 71%, 73%)
---- Sapphire 	#74c7ec 	rgb(116, 199, 236) 	hsl(199, 76%, 69%)
---- Blue 	#89b4fa 	rgb(137, 180, 250) 	hsl(217, 92%, 76%)
---- Lavender 	#b4befe 	rgb(180, 190, 254) 	hsl(232, 97%, 85%)
 --- Subtext1 	#bac2de 	rgb(186, 194, 222) 	hsl(227, 35%, 80%)
 --- Subtext0 	#a6adc8 	rgb(166, 173, 200) 	hsl(228, 24%, 72%)
---- Overlay2 	#9399b2 	rgb(147, 153, 178) 	hsl(228, 17%, 64%)
 --- Overlay1 	#7f849c 	rgb(127, 132, 156) 	hsl(230, 13%, 55%)
---- Overlay0 	#6c7086 	rgb(108, 112, 134) 	hsl(231, 11%, 47%)
 --- Surface2 	#585b70 	rgb(88, 91, 112) 	hsl(233, 12%, 39%)
 --- Surface1 	#45475a 	rgb(69, 71, 90) 	hsl(234, 13%, 31%)
---- Crust 	#11111b 	rgb(17, 17, 27) 	hsl(240, 23%, 9%)
 
+
+-- Presets
+theme.preset_bg_active = theme.catppuccin_mauve
+theme.preset_bg_occupied = theme.catppuccin_surface0 --overlay0
 
 -- Background
 theme.bg_normal = theme.catppuccin_base
@@ -61,22 +65,23 @@ theme.fg_minimize = theme.catppuccin_text
 
 -- Taglist
 theme.taglist_bg_empty = theme.catppuccin_surface0
-theme.taglist_bg_occupied = theme.catppuccin_peach
-theme.taglist_bg_focus = theme.catppuccin_green
+theme.taglist_bg_occupied = theme.preset_bg_occupied
+theme.taglist_bg_focus = theme.preset_bg_active
 --- theme.taglist_bg_volatile = "#00000000"
 --- theme.taglist_bg_urgent = "#00000000"
 
-theme.taglist_fg_empty = theme.catppuccin_text
-theme.taglist_fg_occupied = theme.catppuccin_base
+theme.taglist_fg_empty = theme.catppuccin_overlay2 --text
+theme.taglist_fg_occupied = theme.catppuccin_rosewater --peach
 theme.taglist_fg_focus = theme.catppuccin_base
 theme.taglist_fg_volatile = theme.catppuccin_base
 theme.taglist_fg_urgent = theme.catppuccin_base
 
 
-theme.useless_gap = dpi(2)
-theme.border_width = dpi(3)
-theme.border_normal = theme.bg_normal
-theme.border_focus = theme.catppuccin_green
+theme.useless_gap = dpi(1)
+theme.gap_single_client = false
+theme.border_width = dpi(2)
+theme.border_normal = theme.catppuccin_surface0
+theme.border_focus = theme.preset_bg_active
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -178,9 +183,18 @@ theme.systray_icon_spacing = dpi(10)
 
 
 theme.wibar = {
-    bg = theme.bg_normal,
+    bg = "#FFFFFF",
     spacing = dpi(12)
 }
+
+--- Top Panel
+theme.top_panel_bg = theme.catppuccin_crust --base
+theme.top_panel_outer_margin = dpi(5)
+theme.top_panel_inner_margin_top = dpi(6)
+theme.top_panel_inner_margin_bottom = dpi(6)
+theme.top_panel_inner_margin_left = dpi(10)
+theme.top_panel_inner_margin_right = dpi(10)
+---
 
 theme.wibar.item_height = dpi(30)
 theme.wibar.height = dpi(24)

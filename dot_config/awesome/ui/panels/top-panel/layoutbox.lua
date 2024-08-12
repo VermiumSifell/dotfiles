@@ -1,23 +1,24 @@
 local awful = require("awful")
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
+local wibox = require("wibox")
+local beautiful = require("beautiful")
+local gears = require("gears")
 
 return function(s)
-    local widget = awful.widget.layoutbox {
-        screen = s,
-        buttons = {
-            awful.button({}, 1, function()
-                    awful.layout.inc(1)
-            end),
-            awful.button({}, 3, function()
-                    awful.layout.inc(-1)
-            end),
-            awful.button({}, 4, function()
-                    awful.layout.inc(-1)
-            end),
-            awful.button({}, 5, function()
-                    awful.layout.inc(1)
-            end)
-        }
+    container_layout_widget = {
+       --- {
+            awful.widget.layoutbox(s),
+            top = beautiful.top_panel_inner_margin_top / 1.5,
+            bottom = beautiful.top_panel_inner_margin_bottom / 1.5,
+            right = beautiful.top_panel_inner_margin_right / 1.5,
+            left = beautiful.top_panel_inner_margin_left / 1.5,
+            widget = wibox.container.margin
+       --- },
+       --- fg = beautiful.catppuccin_surface0,
+       --- bg = beautiful.catppuccin_surface0,
+       --- widget = wibox.container.background
     }
 
-    return widget
+    return container_layout_widget
 end

@@ -30,21 +30,17 @@ gears.timer {
 -- create a container for the widget --
 container_cpu_widget = {
     {
-        {
-            {widget = text_cpu_name},
-            left = 10,
-            right = 10,
-            top = 6,
-            bottom = 6,
-            widget = wibox.container.margin
-        },
-        fg = beautiful.catppuccin_red,
-        bg = beautiful.catppuccin_surface0,
-        widget = wibox.container.background
+        {widget = text_cpu_name},
+        top = beautiful.top_panel_inner_margin_top,
+        bottom = beautiful.top_panel_inner_margin_bottom,
+        right = beautiful.top_panel_inner_margin_right,
+        left = beautiful.top_panel_inner_margin_left,
+
+        widget = wibox.container.margin
     },
-    top = 5,
-    bottom = 5,
-    widget = wibox.container.margin
+    fg = beautiful.catppuccin_red,
+    bg = beautiful.catppuccin_surface0,-- Would be cool to set bg color, lavender, yellow, red, based on CPU usage
+    widget = wibox.container.background
 }
 
 return container_cpu_widget

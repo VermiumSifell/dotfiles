@@ -6,25 +6,27 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 return function(s)
-    local widget = awful.widget.taglist {
+    local container_taglist_widget = awful.widget.taglist {
         screen = s,
         filter = awful.widget.taglist.filter.all,
-    layout   = {
-        spacing = dpi(5),
-        layout  = wibox.layout.fixed.horizontal
-    },
+        layout = {spacing = dpi(1), layout = wibox.layout.fixed.horizontal},
+	style = {
+		shape = gears.shape.circle,
+	},
         widget_template = {
             {
                 {
                     {id = 'text_role', widget = wibox.widget.textbox},
                     layout = wibox.layout.fixed.horizontal
                 },
-                left = dpi(10),
-                right = dpi(10),
+                top = beautiful.top_panel_inner_margin_top,
+                bottom = beautiful.top_panel_inner_margin_bottom,
+                right = beautiful.top_panel_inner_margin_right,
+                left = beautiful.top_panel_inner_margin_left,
+
                 widget = wibox.container.margin
             },
             id = 'background_role',
-            shape = gears.shape.rounded_rect,
             widget = wibox.container.background
         },
         buttons = {
@@ -46,15 +48,6 @@ return function(s)
                 awful.tag.viewnext(t.screen)
             end)
         }
-    }
-
-    container_taglist_widget = {
-        widget,
-	margins = dpi(5),
-        --- top = dpi(5),
-        --- bottom = dpi(5),
-        --- left = dpi(5),
-        widget = wibox.container.margin
     }
 
     return container_taglist_widget
