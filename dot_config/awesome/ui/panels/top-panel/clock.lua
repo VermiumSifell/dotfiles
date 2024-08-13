@@ -8,6 +8,13 @@ local gears = require("gears")
 return function(s)
     mytextclock = wibox.widget.textclock("󰥔 %H:%M:%S", 1)
 
+    s.month_calendar = awful.widget.calendar_popup.month {
+        screen = s,
+        week_numbers = true
+    }
+
+    s.month_calendar:attach(mytextclock, "tc")
+
     -- Clock widget
     container_clock_widget = {
         {
