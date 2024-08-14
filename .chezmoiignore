@@ -1,2 +1,16 @@
 README.md
 README.org
+
+# Configs
+.config/helm
+.config/GNS3
+.config/Element
+.config/Element-Nightly
+.config/Electron
+.config/Insomnia
+.config/QtProject.conf
+.config/Signal
+.config/argocd
+.config/nheko
+.config/packer
+.config/sops

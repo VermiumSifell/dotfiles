@@ -2,3 +2,18 @@
     type = "git-repo"
     url = "https://github.com/catppuccin/alacritty.git"
     refreshPeriod = "168h"
+
+[".config/awesome/modules/awesome-wm-widgets"]
+    type = "git-repo"
+    url = "https://github.com/streetturtle/awesome-wm-widgets.git"
+    refreshPeriod = "168h"
+
+[".config/awesome/modules/bling"]
+    type = "git-repo"
+    url = "https://github.com/BlingCorp/bling.git"
+    refreshPeriod = "168h"
+
+[".config/awesome/modules/lain"]
+    type = "git-repo"
+    url = "https://github.com/lcpz/lain.git"
+    refreshPeriod = "168h"
