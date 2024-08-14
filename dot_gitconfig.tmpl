@@ -1,7 +1,7 @@
 [user]
 	email = {{ .email | quote }}
 	name = {{ .name | quote }}
-	signingkey = /home/vermium/.ssh/id_ed25519.pub
+	signingkey = {{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub
 [commit]
 	gpgsign = true
 [gpg]
