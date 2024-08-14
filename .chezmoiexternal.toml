@@ -1,0 +1,4 @@
+[".config/alacritty/catppuccin"]
+    type = "git-repo"
+    url = "https://github.com/catppuccin/alacritty.git"
+    refreshPeriod = "168h"
