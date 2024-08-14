@@ -1,6 +1,6 @@
 local awful = require("awful")
 --- local names = {"󱓞 1", "󰈮 2", " 3", "󰇮 4", "󰦑 5", "󰭻 6", "󰝚 7", "󱛉 8", "󰊴 9", "󰖟 10"}
-local names = {"󱓞", "󰈮", "", "󰇮", "󰦑", "󰭻", "󰝚", "󱛉", "󰊴", "󰖟"}
+local names = {"󱓞", "󰈮", "", "󰇮", "󰦑", "󰭻", "󰀦", "󰀦", "󰊴", "󰖟"}
 
 -- Each screen has its own tag table.
 local l = awful.layout.suit -- Just to save some typing: use an alias.
