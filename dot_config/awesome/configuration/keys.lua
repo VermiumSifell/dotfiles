@@ -4,6 +4,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local beutiful = require("beautiful")
 local naughty = require("naughty")
 local apps = require("configuration.apps")
+local music_scratchpad = require("configuration.music_scratchpad")
 
 super = "Mod4"
 alt = "Mod1"
@@ -66,7 +67,7 @@ awful.keyboard.append_global_keybindings({
     --- Hotkeys
     --- Music player
     awful.key({ super }, "section", function()
-        awful.spawn.with_shell(apps.default.music_player)
+	music_scratchpad:toggle()
     end, { description = "open music client", group = "hotkeys" }),
 
     --- Brightness Control
