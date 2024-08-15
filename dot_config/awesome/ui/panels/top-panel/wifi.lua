@@ -12,7 +12,13 @@ local command = 'iwgetid -r'
 -- create empty textbox widget -- 
 local text_wifi_name = wibox.widget {widget = wibox.widget.textbox}
 
-local update_wifi_name = function(wifi) text_wifi_name.text = " " .. wifi end
+local update_wifi_name = function(wifi)
+    if wifi == '' then
+        text_wifi_name.text = "󰖪 " .. "Disconnected"
+    else
+        text_wifi_name.text = " " .. wifi
+    end
+end
 
 -- fill the textbox widget with the output of the shell script --
 gears.timer {
